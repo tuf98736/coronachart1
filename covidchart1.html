@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Confirmed Cases', 'Deaths'],
+          ['February 01',  8,        0         ],
+          ['February 29',  24,       1         ],
+          ['March 01',  30,          1         ],
+          ['March 08',  450,         21        ],
+          ['March 15',  2918,        70        ],
+          ['March 31',  188172,     5531       ],
+          ['April 01',  213242,     6736       ],
+          ['April 08',  428654,     18270      ],
+          ['March 15',  636350,     32734      ],
+          ['April 26',   965785  ,  54881      ]
+        ]);
+
+        var options = {
+          title: 'Confirmed Cases of Covid-19 and Death Rates',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  </body>
+</html>
